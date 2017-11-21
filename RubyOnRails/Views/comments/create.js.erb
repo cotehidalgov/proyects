@@ -1,6 +1,0 @@
-$(document).bind('ajax:success', function(e, data, status, xhr) {
-  $cs = $('.comments-stream');
-  $cs.prepend("<%= j(render(partial:'comments/preview', locals: {comment: @comment})) %>")
-  $comment_box = $('textarea');
-  $comment_box.val('');
-});
