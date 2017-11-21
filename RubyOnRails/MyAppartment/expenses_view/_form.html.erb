@@ -1,0 +1,26 @@
+
+<%= simple_form_for(@expense) do |f| %>
+  <%= f.error_notification %>
+
+  <!-- <%= form_for @expense do |f| %> -->
+  <div class="form-inputs">
+    <%= f.file_field :path_planilla %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button "Cargar Planilla" %>
+  </div>
+
+  <!-- <% end %> -->
+
+  <!-- <div class="form-inputs">
+    <%= f.input :common_expense %>
+    <%= f.input :particular_expense %>
+    <%= f.input :debt %>
+    <%= f.input :month %>
+  </div> -->
+
+  <!-- <div class="form-actions">
+    <%= f.button :submit %>
+  </div> -->
+<% end %>

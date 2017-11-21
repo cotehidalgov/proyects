@@ -1,0 +1,40 @@
+<% month = DateTime.parse(params[:month])%>
+<% x = Time.zone.at(month.to_time).to_datetime %>
+<% mes = l(month, format: '%B %Y').humanize %>
+
+<% provide(:title, "Gastos de " + mes) %>
+<div class="container">
+  <div class="page-header page-heading">
+    <h1 class="pull-left">Gastos Comunes <%= mes%></h1>
+    <%if is_admin %>
+      <p class="pull-right where-am-i"><%= link_to 'Cargar Planilla', new_expense_path, :class => 'btn btn-success'%></p>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+  <p class="lead" style= "text-align:center"> Precio actual del dolar: <%=@dolar%> clp </p>
+  <h5 style="text-align: center">fuente: <%= link_to "SBIF","http://www.sbif.cl"%></h5>
+  <table class="table forum table-striped">
+        <thead>
+          <tr>
+            <th class="cell-stat-2x hidden-xs hidden-sm">Departamento </th>
+            <th class="cell-stat-2x hidden-xs hidden-sm">Gasto Común</th>
+            <th class="cell-stat-2x hidden-xs hidden-sm">Gasto Particular</th>
+            <th class="cell-stat-2x hidden-xs hidden-sm">Deudas</th>
+            <th class="cell-stat-2x hidden-xs hidden-sm">Total</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        <%@expenses.each do |exp|%>
+          <tr>
+            <td class="hidden-xs hidden-sm"><%= exp.apartment_id %></td>
+            <td class="hidden-xs hidden-sm">$ <%= exp.common_expense %></td>
+            <td class="hidden-xs hidden-sm">$ <%= exp.particular_expense %></td>
+            <td class="hidden-xs hidden-sm">$ <%= exp.debt %></td>
+            <td class="hidden-xs hidden-sm">$ <%= exp.debt + exp.common_expense + exp.particular_expense %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+</div>
+</div>

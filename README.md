@@ -1,1 +1,1 @@
-# proyects
+This repository contains a few school proyects in wich I participate in the last 2 years. There are some files that belongs to larger projects with more colleagues, but are mainly programmed by me, and there are files just made by me alone.

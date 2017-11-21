@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Common expense:</strong>
+  <%= @expense.common_expense %>
+</p>
+
+<p>
+  <strong>Particular expense:</strong>
+  <%= @expense.particular_expense %>
+</p>
+
+<p>
+  <strong>Debt:</strong>
+  <%= @expense.debt %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @expense.month %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

@@ -1,0 +1,34 @@
+<% provide(:title, 'Gastos Comunes') %>
+<div class="container">
+  <div class="page-header page-heading">
+    <h1 class="pull-left">Gastos Comunes</h1>
+    <%if is_admin %>
+      <p class="pull-right where-am-i"><%= link_to 'Cargar Planilla', new_expense_path, :class => 'btn btn-success'%></p>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+  
+  <p class="lead">En esta sección se encuentra el historial de gastos del edificio  </p>
+  <table class="table forum table-striped">
+    <thead>
+      <tr>
+        <th class="cell-stat"></th>
+        <th class="cell-stat-4x"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @months.each do |month| %>
+        <tr>
+          <td class="text-center"><%= content_tag(:i,"", :class => "fa fa-usd fa-2x text-primary") %></td>
+          <td>
+            <% x = Time.zone.at(month.to_time).to_datetime %>
+            <% formatted = l(month, format: '%B %Y') %>
+            <% mes = month.strftime("%B") + " " + month.strftime("%Y")%>
+            <h4><%= link_to "Gastos #{formatted.humanize}", show_by_month_expense_path(month)%></a><br></h4>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
