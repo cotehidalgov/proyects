@@ -1,0 +1,4 @@
+$(document).bind('ajax:success', function() {
+  var comment= $('[data-comment-id="<%= @comment.id %>"]');
+  comment.remove();
+});

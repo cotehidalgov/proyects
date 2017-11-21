@@ -1,0 +1,16 @@
+<article class="card">
+  <div class="inner-container">
+    <div class="card-content">
+      <%= link_to(project) do %>
+        <h2><%= project.name%></h2>
+        <div class="content"><strong>Description</strong>: <%= project.description %> </div>
+        <div class="content"><strong>Likes</strong>: <%= project.likes.count %> </div>
+        <div class="content"><strong>Collected money</strong>:  <%= '$%.2f' % project.total_amount %></div>
+        <div class="content"><strong>Goal</strong>: <%= '$%.2f' % project.goal_money %></div>
+        <div class="content"><strong>Expiration date</strong>: <%= project.due_date %></div>
+        <div class="content"><strong>Founder</strong>: <%= project.founder.try(:username) %></div>
+      <% end %>
+
+    </div>
+  </div>
+</article>

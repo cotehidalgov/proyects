@@ -1,0 +1,35 @@
+<%= form_for(proyect) do |f| %>
+  <% if proyect.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proyect.errors.count, "error") %> prohibited this proyect from being saved:</h2>
+
+      <ul>
+      <% proyect.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="cont">
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.label :description %>
+      <%= f.label :due_date %>
+      <%= f.label :goal_money %>
+      <%= f.label :category_id %>
+      <%= f.label :avatar %>
+    </div>
+    <div class="field">
+      <%= f.text_field :name, required: true%>
+      <%= f.text_area :description %>
+      <%= f.date_select :due_date, required: true%>
+      <%= f.number_field :goal_money, required: true%>
+      <%= f.select :category_id, Category.all.collect { |c| [ c.name, c.id ] }, { include_blank: true }, { required: true } %>
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

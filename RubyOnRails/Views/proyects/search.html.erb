@@ -1,0 +1,19 @@
+<br/>
+
+<header class="masthead clear">
+  <div class="centered">
+    <div class="site-branding">
+      <h1 class="site-title">Projects</h1>
+    </div>
+  </div>
+</header>
+
+<div class="main-area">
+  <div class="centered">
+    <section class="cards">
+      <% @proyects.each do |project| %>
+          <%= render 'preview', project: project%>
+      <% end %>
+    </section>
+  </div>
+</div>

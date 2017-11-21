@@ -1,0 +1,19 @@
+$(document).bind('ajax:success', function() {
+  var cmoney = $('#collected_money');
+  var initial_money = Number(<%= @proyect.total_amount %>);
+  cmoney.attr('data-tmoney', initial_money);
+
+  var gmoney = $('#goal_money');
+  var goal_money = Number(<%= @proyect.goal_money %>);
+  gmoney.attr('data-gmoney', goal_money);
+
+
+  var idollars = initial_money.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  var gdollars = Number(goal_money).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+
+  cmoney.text('$'+idollars);
+  gmoney.text('$'+gdollars);
+
+  var currency = $('.currency');
+  currency.text('USD');
+});

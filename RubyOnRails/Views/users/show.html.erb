@@ -1,0 +1,39 @@
+<aside class="profile-card">
+
+  <header>
+    <!-- here’s the avatar -->
+    <%= image_tag @user.avatar.url %>
+
+    <!-- the username -->
+    <h2 class="username"><%= @user.username%></h2>
+
+    <!-- the mail -->
+    <h2 class="mail"><%= @user.mail %></h2>
+
+  </header>
+
+  <div class="profile-bio">
+
+    <p>Hello there!</p>
+    <%= link_to 'Check my projects!', user_proyects_path(@user)%>
+
+  </div>
+
+</aside>
+
+<%= link_to 'Obtener información adicional del email', 'javascript:;', class:'extra-info'%>
+
+<div id="email-info">
+  <p><strong><%= @verification_info['emails']["#{@user.mail}"]['message'] %></strong></p>
+  <p><strong> Deliverable: </strong> <%= @verification_info['emails']["#{@user.mail}"]['attributes']['deliverable'] %>
+    <br>
+  <strong> Risky: </strong> <%= @verification_info['emails']["#{@user.mail}"]['attributes']['risky'] %>
+    <br>
+  <strong> Disposable: </strong> <%= @verification_info['emails']["#{@user.mail}"]['attributes']['disposable'] %></p>
+</div>
+
+<p> </p>
+
+<% if current_user.try(:id) == @user.id %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+<%end%>

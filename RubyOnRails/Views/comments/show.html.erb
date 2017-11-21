@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment text:</strong>
+  <%= @comment.comment_text %>
+</p>
+
+<p>
+  <strong>Comment date:</strong>
+  <%= @comment.comment_date %>
+</p>
+
+<%= link_to 'Edit', edit_proyect_comment_path(@proyect, @comment) %> |
+<%= link_to 'Back', @proyect %>

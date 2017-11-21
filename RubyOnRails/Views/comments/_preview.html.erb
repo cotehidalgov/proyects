@@ -1,0 +1,29 @@
+<div class="centered" data-comment-id="<%=comment.id%>">
+  <div class="comment-box">
+    <div class="card-content">
+      <div class="user-data">
+        <%= image_tag comment.user.avatar.url(:thumb) %>
+        <%= link_to comment.user.username, comment.user%>
+      </div>
+      <table>
+        <tr>
+          <td>
+            <div class="dialogbox">
+              <div class="body">
+                <span class="tip-up"></span>
+                <div class="message">
+                  <span><%= comment.comment_text %></span>
+                </div>
+              </div>
+            </div>
+          </td>
+          <% if current_user.try(:id) == comment.user_id || current_user.try(:admin?) %>
+              <td><%= link_to raw('<i class="fa fa-pencil"></i>'), edit_proyect_comment_path(@proyect, comment) %></td>
+              <td><%= link_to raw('<i class="fa fa-times"></i>'), [@proyect, comment],
+                              method: :delete, data: { confirm: 'Are you sure?' }, remote: true%></td>
+          <%end%>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

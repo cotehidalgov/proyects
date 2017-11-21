@@ -214,8 +214,8 @@ class MainWindow(QtGui.QMainWindow):
 
 
 if __name__ == "__main__":
-    KEY = "um45uoeq2a5jmju"
-    SECRET = "ex03qgzjyck2frb"
+    KEY = "key"
+    SECRET = "secret"
 
     url1 = "https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id={}".format(KEY)
 
